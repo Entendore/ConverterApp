@@ -872,7 +872,7 @@ class ConverterEngine:
     @staticmethod
     def pdf_to_txt(inp, out, cb):
         try:
-            from PyPDF2 import PdfReader
+            from pypdf import PdfReader
             reader = PdfReader(str(inp))
             parts = []
             for i, page in enumerate(reader.pages):
@@ -882,7 +882,7 @@ class ConverterEngine:
             ConverterEngine._write(out, "\n\n".join(parts))
             cb(True, f"✅ PDF → TXT → {Path(out).name}")
         except ImportError:
-            cb(False, "❌ [b]PyPDF2[/b] not installed. Run: pip install PyPDF2")
+            cb(False, "❌ [b]pypdf[/b] not installed. Run: pip install pypdf")
         except Exception as e:
             cb(False, f"❌ {e}")
 
@@ -982,7 +982,7 @@ class ConverterEngine:
     @staticmethod
     def pdf_to_md(inp, out, cb):
         try:
-            from PyPDF2 import PdfReader
+            from pypdf import PdfReader
             reader = PdfReader(str(inp))
             parts = []
             for i, page in enumerate(reader.pages):
@@ -992,7 +992,7 @@ class ConverterEngine:
             ConverterEngine._write(out, "\n\n".join(parts))
             cb(True, f"✅ PDF → MD → {Path(out).name}")
         except ImportError:
-            cb(False, "❌ [b]PyPDF2[/b] not installed. Run: pip install PyPDF2")
+            cb(False, "❌ [b]pypdf[/b] not installed. Run: pip install pypdf")
         except Exception as e:
             cb(False, f"❌ {e}")
 
@@ -1000,7 +1000,7 @@ class ConverterEngine:
     @staticmethod
     def pdf_to_html(inp, out, cb):
         try:
-            from PyPDF2 import PdfReader
+            from pypdf import PdfReader
             reader = PdfReader(str(inp))
             html_parts = [
                 '<!DOCTYPE html>', '<html><head>', '<meta charset="utf-8">',
@@ -1020,7 +1020,7 @@ class ConverterEngine:
             ConverterEngine._write(out, "\n".join(html_parts))
             cb(True, f"✅ PDF → HTML → {Path(out).name}")
         except ImportError:
-            cb(False, "❌ [b]PyPDF2[/b] not installed. Run: pip install PyPDF2")
+            cb(False, "❌ [b]pypdf[/b] not installed. Run: pip install pypdf")
         except Exception as e:
             cb(False, f"❌ {e}")
 
